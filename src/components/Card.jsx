@@ -1,12 +1,14 @@
 import React from "react";
+import Main from "./Main";
 
-const Card = ({ pokemon, loading,infoPokemon}) => {
+const Card = ({ pokemon, loading,infoPokemon, result}) => {
 
     return (
         <>
+
         {
             loading ? <h1>Loading...</h1> :
-                pokemon.map(item=>{                    
+                result.map(item=>{                    
                     return (
                         <>
                             <div className="card" key={item.id} onClick={()=>infoPokemon(item)}>

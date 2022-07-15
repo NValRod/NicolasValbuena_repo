@@ -12,15 +12,21 @@ const Main=()=>{
     const [nextUrl,setNextUrl]=useState();
     const [prevUrl,setPrevUrl]=useState();
     const [pokeDex,setPokeDex]=useState();
+    const [search, setSearch]=useState("");
 
+    const searcher = (e)=>{
+        setSearch(e.target.value)
+    }
+
+    const results = !search ? pokeData:pokeData.filter((data)=>data.name.toLowerCase().includes(search.toLocaleLowerCase()))
+    
     const pokeFunction=async()=>{
         setLoading(true)
         const res=await axios.get(url);
         setNextUrl(res.data.next);
-        console.log(res.data.next)
         setPrevUrl(res.data.previous);
-        getPokemon(res.data.results)
-        setLoading(false)
+        getPokemon(res.data.results);
+        setLoading(false);
     }
     const getPokemon=async(res)=>{
        res.map(async(item)=>{
@@ -35,14 +41,16 @@ const Main=()=>{
     useEffect(()=>{
         pokeFunction();
     },[url])
+
     return(
         <>
             <div>
-                <input type="text" placeholder="Search your pokemon" className="searcher" />
+                <input value={search} onChange={searcher}
+                type="text" placeholder="Search your pokemon" className="searcher"/>
             </div>
             <div className="cnt">
                 <div className="left-content">
-                    <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)}/>
+                    <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)} result={results}/>
                     <div className="btn-cnt">
                         {  prevUrl && <button onClick={()=>{
                             setPokeData([])
