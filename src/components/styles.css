@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+}
+body{
+    background-color: #fefae0;
+}
+.cnt{
+    width: 90%;
+    margin: -5em auto;
+    padding-top: 100px;
+    display: flex;
+}
+.left-content,.right-content{
+    flex-basis: 50%;
+}
+.left-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,0.5fr));
+    grid-gap:2rem;
+}
+.card{
+    width: 300px;
+    height: 18em;
+    background-color:#9dcee2;
+    border-radius: 1rem;
+    box-shadow: 8px 6px 5px #adb5bd;
+    padding: .2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+.card img{
+    margin-top: .1em;
+    width: 13em;
+    height: 10em;
+    border: 1.9px solid #cb1b16;
+    border-radius: 8px;
+    background-color: #e9edc9;
+}
+
+.card h1{
+    font-size: 1.5em;
+    margin-top: 8px;
+}
+.card h2{
+    font-weight: 600;
+}
+.right-content{
+    width: 30%;
+    height: 85%;
+    text-align: center;
+    color: black;
+    position: fixed;
+    top: 2em;
+    right: 7em;
+    box-shadow: 9px 7px 5px #adb5bd;
+    border-radius: 8px;
+    background-color: #e9edc9;
+    padding: 1em;
+}
+.pokeImgOne{
+    margin: 1rem;
+    margin-bottom: -1em;
+    height: 160px;
+    border: 1.9px solid #cb1b16;
+    padding: 1em;
+    border-radius: 8px;
+    background-color: #9dcee2;
+}
+.right-content h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.base-stat{
+    margin-top: 2rem;
+    text-align: left;
+    margin-left: 1em;
+}
+.base-stat h2{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.btn-cnt{
+    display: flex;
+    margin-top: -1.5em;
+    margin-bottom: 1em;
+}
+.btn-cnt button{
+    font-weight: 600;
+    background-color: #cb1b16;
+    box-shadow:#adb5bd 4px 4px 0px;
+    border-radius: 5px;
+    transition:transform 200ms,box-shadow 200ms;
+    width: 6em;
+    height: 2.5em;
+    margin-left: 0;
+    margin: 1rem;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  button:active{
+    transform:translateY(4px)translateX(4px);
+    box-shadow:#adb5bd 0px 0px 0px;
+  }
+
+.imgCnt{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important;
+    margin-top: 5px;
+    
+}
+.imgCnt img{
+    background-color:#9dcee2 ;
+}
+
+.imgPoke{
+    border: 1.9px solid #cb1b16;
+    border-radius: 8px;
+    width: 4.8em;
+    height: 4em !important;
+    padding: 5px;
+}
+
+.searcher{
+    width: 40em;
+    height: 2em;
+    border-radius: 8px;
+    margin-top: 1.5em;
+    margin-left: 8.5em;
+    border: 2px solid #cb1b16;
+    outline: none;
+}
+
+.infCnt{
+    margin-bottom: .5em;
+}
