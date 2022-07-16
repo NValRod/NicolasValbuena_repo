@@ -13,13 +13,9 @@ const Main=()=>{
     const [prevUrl,setPrevUrl]=useState();
     const [pokeDex,setPokeDex]=useState();
     const [search, setSearch]=useState("");
-
-    const searcher = (e)=>{
-        setSearch(e.target.value)
-    }
-
-    const results = !search ? pokeData:pokeData.filter((data)=>data.name.toLowerCase().includes(search.toLocaleLowerCase()))
     
+    
+    /*<-------- Pages and loanding Variable -------->*/
     const pokeFunction=async()=>{
         setLoading(true)
         const res=await axios.get(url);
@@ -28,6 +24,12 @@ const Main=()=>{
         getPokemon(res.data.results);
         setLoading(false);
     }
+
+    useEffect(()=>{
+        pokeFunction();
+    },[url])
+
+    /*<-------- Get the pokemon Varible -------->*/ 
     const getPokemon=async(res)=>{
        res.map(async(item)=>{
           const result=await axios.get(item.url)
@@ -38,10 +40,16 @@ const Main=()=>{
           })
        })   
     }
-    useEffect(()=>{
-        pokeFunction();
-    },[url])
 
+    /* <----- Search Input Variable ------> */
+    const searcher = (e)=>{
+        setSearch(e.target.value)
+    }
+
+    const results = !search ? pokeData:pokeData.filter((data)=>data.name.toLowerCase().includes
+    (search.toLocaleLowerCase()))
+
+    /* <-------- HTML that Returns all the app  --------> */
     return(
         <>
             <div>

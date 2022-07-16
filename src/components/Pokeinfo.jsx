@@ -1,21 +1,20 @@
-import React, { Profiler } from "react";
+import React from "react";
 
+/*<-------- Card tha shows the info on the right -------->*/
 const Pokeinfo = ({ data }) => {
     return (
-        
         <>
         {
             (!data) ? "" : (
                 <>
                 
-                    
                     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`} alt="" className="pokeImgOne"/>
                     <div className="nameCnt">
                         <h2>#{data.id}</h2>
                         <h1>{data.name}</h1>
                     </div>
                     
-                    <div className="base-stat"> 
+                    <div className="BaseCnt"> 
                         <div className="infCnt">
                             <h2>Tipo:</h2>
                                     {

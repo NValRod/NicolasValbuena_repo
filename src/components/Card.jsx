@@ -1,11 +1,11 @@
 import React from "react";
 import Main from "./Main";
 
+/*<-------- Card that Shows in the left -------->*/
 const Card = ({ pokemon, loading,infoPokemon, result}) => {
 
     return (
         <>
-
         {
             loading ? <h1>Loading...</h1> :
                 result.map(item=>{                    
@@ -19,8 +19,8 @@ const Card = ({ pokemon, loading,infoPokemon, result}) => {
                         </>)
                     })
         }
-
         </>
     )
+
 }
 export default Card;
