@@ -24,3 +24,4 @@ const Card = ({ pokemon, loading,infoPokemon, result}) => {
 
 }
 export default Card;
+

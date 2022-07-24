@@ -23,7 +23,8 @@ body{
 .left-content{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,0.5fr));
-    grid-gap:2rem;
+    column-gap: 5em;
+    row-gap: 2em;
 }
 
 .right-content{
@@ -130,7 +131,7 @@ body{
 /* <-------- Pokeinfo CSS --------> */
 .pokeImgOne{
     width: 21em;
-    margin: 1rem;
+    margin: 1rem 0;
     margin-bottom: -1em;
     height: 160px;
     border: 1.9px solid #cb1b16;
@@ -168,3 +169,20 @@ body{
     margin-bottom: -1em;
 }
 
+/*<-------- Media querys -------->*/
+
+@media (min-width: 305px) and (max-width: 480px) {
+     .right-content{
+        width: 50%;
+        height: 50%;
+        text-align: center;
+        color: black;
+        position: fixed;
+        top: 2em;
+        right: 1em;
+        box-shadow: 9px 7px 5px #adb5bd;
+        border-radius: 8px;
+        background-color: #e9edc9;
+        padding: 1em;
+     }
+} 
