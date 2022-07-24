@@ -12,56 +12,46 @@ body{
 
 /* <-------- Main CSS --------> */
 .cnt{
-    width: 90%;
+    width: 100%;
     margin: -5em auto;
-    padding-top: 100px;
-    display: flex;
+    padding-top: 6em;
+    padding-bottom: 4em;
 }
-.left-content,.right-content{
-    flex-basis: 50%;
+.title{
+    text-align: center;
+    padding-top: 1em;
+}
+.left-content{
+    flex-basis: 70%;
 }
 .left-content{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,0.5fr));
-    column-gap: 5em;
-    row-gap: 2em;
+    grid-template-columns: repeat(auto-fit,minmax(18em,1fr));
+    column-gap: 1em;
+    row-gap: 1em;
+    margin: .5em 2em;
 }
 
-.right-content{
-    width: 30%;
-    height: 85%;
-    text-align: center;
-    color: black;
-    position: fixed;
-    top: 2em;
-    right: 7em;
-    box-shadow: 9px 7px 5px #adb5bd;
-    border-radius: 8px;
-    background-color: #e9edc9;
-    padding: 1em;
+.inputCnt{
+    display: flex;
+    justify-content: center;
 }
-
-.right-content h1{
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
 .searcher{
-    width: 40em;
+    width: 45em;
     height: 2em;
     border-radius: 8px;
     margin-top: 1.5em;
-    margin-left: 8.5em;
     border: 2px solid #cb1b16;
     outline: none;
 }
 
 .btn-cnt{
     display: flex;
-    margin-top: -1.5em;
-    margin-bottom: 1em;
+    margin-top: .5em;
+    justify-content: center;
+    gap: 10em;
 }
+
 .btn-cnt button{
     font-weight: 600;
     background-color: #cb1b16;
@@ -85,17 +75,25 @@ body{
     box-shadow:#adb5bd 0px 0px 0px;
   }
 
+  button:hover{
+    background-color: #585b5e;
+  }
 
+  footer{
+    background-color: #cb1b16;
+    color: #fefae0;
+    font-weight: 600;
+    text-align: center;
+  }
 /* <-------- Card CSS --------> */
 .card{
-    width: 300px;
-    height: 18em;
+    width: 18.75em;
+    height: 20em;
     background-color:#9dcee2;
     border-radius: 1rem;
     box-shadow: 8px 6px 5px #adb5bd;
     padding: .2em;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
@@ -103,9 +101,9 @@ body{
     text-transform: capitalize;
 }
 .card img{
+    width: 15em;
+    height: 11em;
     margin-top: .1em;
-    width: 13em;
-    height: 10em;
     border: 1.9px solid #cb1b16;
     border-radius: 8px;
     background-color: #e9edc9;
@@ -113,31 +111,50 @@ body{
 
 .card h1{
     font-size: 1.5em;
-    margin-top: 8px;
+    margin-top: .7em;
+    margin-bottom: 5px;
 }
 .card h2{
     font-weight: 600;
 }
 
-.imgPoke{
-    border: 1.9px solid #cb1b16;
-    border-radius: 8px;
-    width: 4.8em;
-    height: 4em !important;
-    padding: 5px;
+.spinner-grow{
+    margin-top: 5em;
+    width: 10em; 
+    height: 10em;
 }
-
 
 /* <-------- Pokeinfo CSS --------> */
 .pokeImgOne{
-    width: 21em;
+    width: 25em;
+    height: 15em;
     margin: 1rem 0;
-    margin-bottom: -1em;
-    height: 160px;
+    margin-bottom: 0em;
     border: 1.9px solid #cb1b16;
     padding: 1em;
     border-radius: 8px;
     background-color: #9dcee2;
+}
+
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-content{
+    box-shadow: 9px 7px 5px #adb5bd;
+    border-radius: 8px;
+    background-color: #e9edc9;
+    padding: 1em;
+}
+
+.modal-content h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 2em;
 }
 
 .BaseCnt{
@@ -146,10 +163,13 @@ body{
     margin-left: 1em;
 }
 .BaseCnt h2{
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 600;
 }
 
+.infCnt{
+    margin-bottom: 1em;
+}
 .imgCnt{
     display: grid;
     grid-template-columns: repeat(4, 1fr) !important;
@@ -160,29 +180,33 @@ body{
     background-color:#9dcee2 ;
 }
 
-.infCnt{
-    margin-bottom: .5em;
+.spritePoke{
+    border: 1.9px solid #cb1b16;
+    border-radius: 8px;
+    width: 6.2em;
+    height: 6em !important;
 }
 
 .nameCnt{
     margin-top: 1em;
     margin-bottom: -1em;
+    font-size: 1em;
+}
+
+.typeCnt{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+    line-height: 10px;
+    margin-bottom: 1em;
+}
+
+.typeCnt span{
+    font-size: 1.1em;
+}
+.modalBtn{
+    margin: -.5em 0;
 }
 
 /*<-------- Media querys -------->*/
 
-@media (min-width: 305px) and (max-width: 480px) {
-     .right-content{
-        width: 50%;
-        height: 50%;
-        text-align: center;
-        color: black;
-        position: fixed;
-        top: 2em;
-        right: 1em;
-        box-shadow: 9px 7px 5px #adb5bd;
-        border-radius: 8px;
-        background-color: #e9edc9;
-        padding: 1em;
-     }
-} 

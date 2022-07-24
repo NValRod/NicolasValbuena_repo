@@ -3,9 +3,9 @@ import Pokeinfo from "./Pokeinfo";
 import axios from "axios";
 import React, { useEffect} from "react";
 import { useState } from "react";
+import { Modal, ModalBody } from 'reactstrap';
 
-
-const Main=()=>{
+const Main=(args)=>{
     
     const [pokeData,setPokeData]=useState([]);
     const [loading,setLoading]=useState(true);
@@ -14,7 +14,7 @@ const Main=()=>{
     const [prevUrl,setPrevUrl]=useState();
     const [pokeDex,setPokeDex]=useState();
     const [search, setSearch]=useState("");
-    
+    const [modal, setModal] = useState(false);
     
     /*<-------- Pages and loanding Variable -------->*/
     const pokeFunction=async()=>{
@@ -48,35 +48,51 @@ const Main=()=>{
     }
 
     const results = !search ? pokeData:pokeData.filter((data)=>data.name.toLowerCase().includes
-    (search.toLocaleLowerCase()))
+    (search.toLocaleLowerCase()));
 
+    /*<-------- Modal Function -------->*/
+    const toggle = () => setModal(!modal);
+    
     /* <-------- HTML that Returns all the app  --------> */
     return(
         <>
-            <div>
-                <input value={search} onChange={searcher}
-                type="text" placeholder="Search your pokemon" className="searcher"/>
-            </div>
+            <h1 className="title">Welcome to your personal Pokemon Index:</h1>
             <div className="cnt">
-                <div className="left-content">
-                    <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)} result={results}/>
+                <div className="inputCnt">
+                    <input value={search} onChange={searcher}
+                    type="text" placeholder="Search your pokemon" className="searcher"/>
+                </div>
+                <div>
                     <div className="btn-cnt">
-                        {  prevUrl && <button onClick={()=>{
-                            setPokeData([])
-                           setUrl(prevUrl) 
-                        }}>Previous</button>}
+                            {  prevUrl && <button onClick={()=>{
+                                setPokeData([])
+                            setUrl(prevUrl) 
+                            }}>Previous</button>}
 
-                        { nextUrl && <button onClick={()=>{
-                            setPokeData([])
-                            setUrl(nextUrl)
-                        }}>Next</button>}
-
+                            { nextUrl && <button onClick={()=>{
+                                setPokeData([])
+                                setUrl(nextUrl)
+                            }}>Next</button>}
                     </div>
-                </div>
-                <div className="right-content">
-                   <Pokeinfo data={pokeDex}/>
-                </div>
+                </div>  
+                <span  className="left-content" onClick={toggle}>
+                        <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)} result={results} />
+                </span>
             </div>
+
+
+        <div className="modalCnt">
+            <Modal isOpen={modal} toggle={toggle} {...args}>
+                <ModalBody>                
+                    <div>
+                        <Pokeinfo data={pokeDex}/>
+                    </div>
+                </ModalBody>
+                <div className="btn-cnt modalBtn">
+                    <button onClick={toggle}>Cancel</button>
+                </div>
+            </Modal>
+        </div>         
         </>
     )
 }
