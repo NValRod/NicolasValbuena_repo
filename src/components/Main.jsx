@@ -80,6 +80,7 @@ const Main=(args)=>{
                 </span>
             </div>
 
+        <footer>Copyright @2022</footer>
 
         <div className="modalCnt">
             <Modal isOpen={modal} toggle={toggle} {...args}>

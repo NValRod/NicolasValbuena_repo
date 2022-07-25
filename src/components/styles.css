@@ -8,18 +8,24 @@
 }
 body{
     background-color: #fefae0;
+    background-image: url(/public/img/bgPok.jpeg);
+    background-color: rgb(49, 57, 65);
+    background-blend-mode:soft-light;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 /* <-------- Main CSS --------> */
 .cnt{
     width: 100%;
-    margin: -5em auto;
-    padding-top: 6em;
-    padding-bottom: 4em;
+    padding-top: 1em;
+    padding-bottom: 5em;
 }
 .title{
     text-align: center;
     padding-top: 1em;
+    color: #fefae0;
 }
 .left-content{
     flex-basis: 70%;
@@ -80,7 +86,7 @@ body{
   }
 
   footer{
-    background-color: #cb1b16;
+    background-color: #881713;
     color: #fefae0;
     font-weight: 600;
     text-align: center;
