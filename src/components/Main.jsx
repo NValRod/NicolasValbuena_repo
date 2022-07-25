@@ -1,5 +1,6 @@
 import Card  from "./Card";
 import Pokeinfo from "./Pokeinfo";
+import ScrollToTop from "./Scroll-Top";
 import axios from "axios";
 import React, { useEffect} from "react";
 import { useState } from "react";
@@ -47,8 +48,7 @@ const Main=(args)=>{
         setSearch(e.target.value)
     }
 
-    const results = !search ? pokeData:pokeData.filter((data)=>data.name.toLowerCase().includes
-    (search.toLocaleLowerCase()));
+    const results = !search ? pokeData:pokeData.filter((data)=>data.name.toLowerCase().includes(search.toLocaleLowerCase()));
 
     /*<-------- Modal Function -------->*/
     const toggle = () => setModal(!modal);
@@ -75,15 +75,20 @@ const Main=(args)=>{
                             }}>Next</button>}
                     </div>
                 </div>  
-                <span  className="left-content" onClick={toggle}>
-                        <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)} result={results} />
-                </span>
+                <div className="left-content" onClick={toggle}>
+                        <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)} result={results} key={loading} />
+                </div>
+                <div lassName="btn-cnt">                
+                    <button className="btnToTop">< ScrollToTop /></button>
+                </div>
+
             </div>
+
 
         <footer>Copyright @2022</footer>
 
         <div className="modalCnt">
-            <Modal isOpen={modal} toggle={toggle} {...args}>
+            <Modal isOpen={modal} toggle={toggle}{...args}>
                 <ModalBody>                
                     <div>
                         <Pokeinfo data={pokeDex}/>

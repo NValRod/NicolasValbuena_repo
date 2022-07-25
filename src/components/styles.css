@@ -8,7 +8,7 @@
 }
 body{
     background-color: #fefae0;
-    background-image: url(/public/img/bgPok.jpeg);
+    background-image: url(/img/bgPok.webp);
     background-color: rgb(49, 57, 65);
     background-blend-mode:soft-light;
     background-repeat: no-repeat;
@@ -20,17 +20,16 @@ body{
 .cnt{
     width: 100%;
     padding-top: 1em;
-    padding-bottom: 5em;
+    padding-bottom: 2em;
 }
 .title{
     text-align: center;
     padding-top: 1em;
     color: #fefae0;
 }
+
 .left-content{
     flex-basis: 70%;
-}
-.left-content{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(18em,1fr));
     column-gap: 1em;
@@ -41,6 +40,7 @@ body{
 .inputCnt{
     display: flex;
     justify-content: center;
+    padding: 1em;
 }
 .searcher{
     width: 45em;
@@ -49,6 +49,7 @@ body{
     margin-top: 1.5em;
     border: 2px solid #cb1b16;
     outline: none;
+    padding: 1em;
 }
 
 .btn-cnt{
@@ -90,6 +91,8 @@ body{
     color: #fefae0;
     font-weight: 600;
     text-align: center;
+    position: absolute;
+    width: 100%;
   }
 /* <-------- Card CSS --------> */
 .card{
@@ -131,15 +134,15 @@ body{
 }
 
 /* <-------- Pokeinfo CSS --------> */
-.pokeImgOne{
-    width: 25em;
-    height: 15em;
-    margin: 1rem 0;
-    margin-bottom: 0em;
-    border: 1.9px solid #cb1b16;
-    padding: 1em;
-    border-radius: 8px;
-    background-color: #9dcee2;
+
+.BaseCnt{
+    margin-top: 2rem;
+    text-align: left;
+    margin-left: 1em;
+}
+.BaseCnt h2{
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .modal{
@@ -163,25 +166,27 @@ body{
     font-size: 2em;
 }
 
-.BaseCnt{
-    margin-top: 2rem;
-    text-align: left;
-    margin-left: 1em;
-}
-.BaseCnt h2{
-    font-size: 1.2em;
-    font-weight: 600;
+.modalBtn{
+    margin: -.5em 0;
 }
 
-.infCnt{
-    margin-bottom: 1em;
+.pokeImgOne{
+    width: 25em;
+    height: 15em;
+    margin: 1rem 0;
+    margin-bottom: 0em;
+    border: 1.9px solid #cb1b16;
+    padding: .9em;
+    border-radius: 8px;
+    background-color: #9dcee2;
 }
+
 .imgCnt{
     display: grid;
     grid-template-columns: repeat(4, 1fr) !important;
     margin-top: 5px;
-    
 }
+
 .imgCnt img{
     background-color:#9dcee2 ;
 }
@@ -193,6 +198,9 @@ body{
     height: 6em !important;
 }
 
+.infCnt{
+    margin-bottom: 1em;
+}
 .nameCnt{
     margin-top: 1em;
     margin-bottom: -1em;
@@ -210,9 +218,37 @@ body{
 .typeCnt span{
     font-size: 1.1em;
 }
-.modalBtn{
-    margin: -.5em 0;
+
+
+/*<-------- Scroll to top -------->*/
+
+.btnToTop{
+    font-size: 2.2em;
+    border-radius: 8px;
+    background-color: #e9edc9;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: -1em;
+    text-align: center;
 }
 
-/*<-------- Media querys -------->*/
 
+/*<-------- PokeInfo Media Querys -------->*/
+
+@media (min-width: 321px) and (max-width: 480px) {
+    .pokeImgOne{
+        width: 18.8em;
+        margin-right: 15px;
+    }
+
+    .imgCnt{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) !important;
+        margin-top: 5px;
+        margin-left: 1em;
+    }
+
+    .spritePoke{
+        margin-bottom: 10px;
+    }
+} 

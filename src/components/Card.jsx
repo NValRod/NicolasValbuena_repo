@@ -7,17 +7,15 @@ const Card = ({ loading,infoPokemon, result}) => {
     return (
         <>
         {
-
-           
-           loading ? <div class="d-flex justify-content-center">
-                        <div class="spinner-grow" role="status">
-                        <span class="visually-hidden">Loading...</span>
+           loading ? <div className="d-flex justify-content-center">
+                        <div className="spinner-grow" role="status">
+                        <span className="visually-hidden">Loading...</span>
                         </div>
                     </div> :
-                result.map(item=>{                    
+                result.map((item)=>{                    
                     return (
                         <>
-                            <div className="card" key={item.id} onClick={()=>infoPokemon(item)}>
+                            <div className="card" onClick={()=>infoPokemon(item)}>
                                 <img src={item.sprites.front_default} alt="Imagen Pokemon"/>
                                 <h1>Id:{item.id}</h1>
                                 <h2>{item.name}</h2>
